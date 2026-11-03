@@ -51,6 +51,13 @@ PRODUCT = "FM-1_900"                # package identity; release builds are FM-1_
 VERSION = None                      # FELUCCA_VERSION for release builds (default: firmware/src/ui.c)
 
 
+# Big Screen build on a Mac without Docker: JIELI_WINE=<wine binary> runs JieLi's Windows toolchain 2.5.3 (the same
+# clang 4.0.1 for pi32v2) from JIELI_WIN_BIN (its pi32/bin) instead of the Linux one in a container.
+WINE = os.environ.get("JIELI_WINE")
+WIN_TOOLS = {"pi32v2/bin/clang": "clang.exe", "pi32v2/bin/ld": "pi32v2-ld.exe",
+             "common/bin/objcopy": "llvm-objcopy.exe", "common/bin/objdump": "llvm-objdump.exe"}
+
+
 def toolchain():
     tc = os.environ.get("JIELI_TOOLCHAIN")
     if not tc or not (Path(tc) / "pi32v2" / "bin" / "clang").exists():
@@ -72,7 +79,9 @@ def tc(tool, *args):
     rel = [str(Path(a).resolve().relative_to(SRC)) if isinstance(a, Path) else a for a in args]
     if tool == "cc":                # the toolchain's cc wrapper needs python3; call clang directly
         tool, rel = "pi32v2/bin/clang", ["-target", "pi32v2", *rel]
-    if use_docker():
+    if WINE:
+        cmd = [WINE, str(Path(os.environ["JIELI_WIN_BIN"]) / WIN_TOOLS[tool]), *rel]
+    elif use_docker():
         cmd = ["docker", "run", "--rm", "--platform", "linux/amd64", "-v", f"{SRC}:/work",
                "-v", f"{toolchain()}:/opt/jieli:ro", "-w", "/work", DOCKER_IMAGE, f"/opt/jieli/{tool}", *rel]
     else:
