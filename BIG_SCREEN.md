@@ -12,8 +12,27 @@ USB only: SLOOP has no Bluetooth MIDI.
 
 Tested on a real FM-1 (2026-11-07): installed over the 2.8.4 build with SLOOP's installer, then the screen and the sound's name came through over USB on a Mac. **Watch it:** [SLOOP on a Big Screen](https://youtu.be/Pd4Bm6JvtkU).
 
-**Source only for now:** there's no ready-to-install firmware here yet. To build it, see [BUILDING.md](BUILDING.md).
+## Installing it
+
 Install at your own risk, and back up your sounds and projects first.
+
+1. Charge the FM-1, plug it straight into the computer (no hub), and close every app that uses it.
+2. Download **SLOOP-2.8.5-BigScreen.fwsc** from this fork's [Releases](https://github.com/pfkellogg/sloop-fm1/releases).
+3. With this repository and Python 3 (`pip3 install mido python-rtmidi`), from its folder:
+
+   ```
+   python3 tools/fm1_install.py SLOOP-2.8.5-BigScreen.fwsc --yes
+   ```
+
+4. If the computer doesn't see the FM-1 after it restarts, unplug the USB cable and plug it back in.
+
+We installed it over the SLOOP 2.8.4 build, which went on over M-VAVE's V15. Over M-VAVE's Open firmware or the FM-1 Big Screen
+firmware, put the official V15 back first (M-VAVE's [FM1 Workbench](https://open.m-vave.com/fm1-workbench): Connect device, then
+Device update › Restore original V15).
+
+**Back:** SLOOP's own installer puts the plain SLOOP back, without the big screen.
+
+To build it yourself, see [BUILDING.md](BUILDING.md).
 
 Questions: **pfkellogg@gmail.com**
 
