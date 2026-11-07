@@ -10,7 +10,7 @@ This is an **unofficial** build, not a SLOOP release, and isod89 has nothing to 
 `firmware/src/sloop_mirror.c` and small hooks in `lcd.c`, `main.c`, `usb.c` and the build). With nobody asking, it does nothing.
 USB only: SLOOP has no Bluetooth MIDI.
 
-The SLOOP 2.8.4 version of this was tested on a real FM-1 (2026-11-04) with FM-1 Mirror on a Mac. This 2.8.5 version builds, but **hasn't been tested on a real FM-1 yet**. **Watch it:** [SLOOP on a Big Screen](https://youtu.be/Pd4Bm6JvtkU).
+Tested on a real FM-1 (2026-11-07): installed over the 2.8.4 build with SLOOP's installer, then the screen and the sound's name came through over USB on a Mac. **Watch it:** [SLOOP on a Big Screen](https://youtu.be/Pd4Bm6JvtkU).
 
 **Source only for now:** there's no ready-to-install firmware here yet. To build it, see [BUILDING.md](BUILDING.md).
 Install at your own risk, and back up your sounds and projects first.
