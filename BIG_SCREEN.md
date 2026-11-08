@@ -12,6 +12,8 @@ USB only: SLOOP has no Bluetooth MIDI.
 
 Tested on a real FM-1 (2026-11-07): installed over the 2.8.4 build with SLOOP's installer, then the screen and the sound's name came through over USB on a Mac. **Watch it:** [SLOOP on a Big Screen](https://youtu.be/Pd4Bm6JvtkU).
 
+> **Newer FM-1s** (sold from late 2026, flash chip `0xB36014`, see [M-Flasher](https://github.com/jvitkauskas/m-flasher)): this build knows their chip, so saving works on them too. Not yet tested by us on one.
+
 ## Installing it
 
 Install at your own risk, and back up your sounds and projects first.
