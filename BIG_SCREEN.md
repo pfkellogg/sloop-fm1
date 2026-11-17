@@ -5,7 +5,8 @@
 the sound playing and the BPM over its USB cable, so [FM-1 Mirror](https://github.com/pfkellogg/fm1-mirror) shows it big, live.
 For players who can't read the FM-1's 1.54-inch screen.
 
-This is an **unofficial** build, not a SLOOP release, and isod89 has nothing to do with it. Everything else is
+This is an **unofficial** build, not a SLOOP release, and isod89 has nothing to do with it. It's offered to isod89 as
+[pull request #263](https://github.com/isod89/sloop-fm1/pull/263) (the firmware only), so it can be in SLOOP itself. Everything else is
 **SLOOP 2.8.5** (commit `bac9c05`) as published, plus about 340 lines (`firmware/src/screen_mirror.c`,
 `firmware/src/sloop_mirror.c` and small hooks in `lcd.c`, `main.c`, `usb.c` and the build). With nobody asking, it does nothing.
 USB only: SLOOP has no Bluetooth MIDI.
